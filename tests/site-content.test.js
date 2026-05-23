@@ -13,6 +13,15 @@ function readAsset(file) {
   return fs.readFileSync(path.join(root, file));
 }
 
+const sectionImageAssets = [
+  "assets/section-network-intelligence.png",
+  "assets/section-integration-edu-sci-talent.png",
+  "assets/section-agents-matrix.png",
+  "assets/section-projects-collaboration.png",
+  "assets/section-institutions-partnership.png",
+  "assets/section-loop-closed-loop.png"
+];
+
 test("homepage contains official AICN positioning and stakeholder references", () => {
   const html = readRequired("index.html");
   const requiredText = [
@@ -129,6 +138,21 @@ test("regional connection image is a generated raster asset", () => {
 
   assert.equal(signature, "89504e470d0a1a0a");
   assert.ok(png.length > 100000, `expected substantial generated image, got ${png.length} bytes`);
+});
+
+test("homepage gives every major section a high-quality visual image", () => {
+  const html = readRequired("index.html");
+
+  for (const asset of sectionImageAssets) {
+    assert.match(html, new RegExp(`src="${asset.replace(/[./-]/g, "\\$&")}"`));
+    const png = readAsset(asset);
+    const signature = png.subarray(0, 8).toString("hex");
+
+    assert.equal(signature, "89504e470d0a1a0a", `${asset} must be a PNG`);
+    assert.ok(png.length > 100000, `${asset} should be a substantial generated image`);
+  }
+
+  assert.ok((html.match(/class="section-figure"/g) || []).length >= sectionImageAssets.length);
 });
 
 test("styles define responsive civic-tech visual system", () => {

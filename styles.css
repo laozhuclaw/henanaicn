@@ -408,12 +408,14 @@ section:not(.hero):not(.metrics-band) {
 }
 
 .connection-figure,
-.auth-figure {
+.auth-figure,
+.section-figure {
   margin: 0;
 }
 
 .connection-figure img,
-.auth-figure img {
+.auth-figure img,
+.section-figure img {
   width: 100%;
   display: block;
   border: 1px solid rgba(15, 59, 120, 0.14);
@@ -422,11 +424,22 @@ section:not(.hero):not(.metrics-band) {
 }
 
 .connection-figure figcaption,
-.auth-figure figcaption {
+.auth-figure figcaption,
+.section-figure figcaption {
   margin-top: 10px;
   color: var(--muted);
   font-size: 13px;
   font-weight: 700;
+}
+
+.section-figure {
+  margin: -6px 0 26px;
+}
+
+.section-figure img {
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  background: var(--official-blue-900);
 }
 
 .showcase-copy {
@@ -1073,6 +1086,14 @@ section:not(.hero):not(.metrics-band) {
     min-height: 34px;
     padding: 0 10px;
     font-size: 13px;
+  }
+
+  .section-figure {
+    margin-bottom: 20px;
+  }
+
+  .section-figure img {
+    aspect-ratio: 16 / 9;
   }
 
   .brand-mark {
