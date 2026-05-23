@@ -9,6 +9,10 @@ function readRequired(file) {
   return fs.readFileSync(path.join(root, file), "utf8");
 }
 
+function readAsset(file) {
+  return fs.readFileSync(path.join(root, file));
+}
+
 test("homepage contains official AICN positioning and stakeholder references", () => {
   const html = readRequired("index.html");
   const requiredText = [
@@ -82,8 +86,8 @@ test("homepage moves login access to the header and uses regional visual assets"
 
   assert.match(html, /class="auth-actions"/);
   assert.match(html, /href="login\.html"/);
-  assert.match(html, /src="assets\/henan-yrd-connection\.svg"/);
-  assert.match(html, /alt="河南省与长三角创新资源对接示意图"/);
+  assert.match(html, /src="assets\/henan-yrd-aicn-generated\.png"/);
+  assert.match(html, /alt="河南省地图、清华长三角研究院与长三角城市群通过 AICN 连接的主视觉"/);
   assert.doesNotMatch(html, /<section[^>]+id="access"/);
 });
 
@@ -116,7 +120,15 @@ test("login page exposes role-based human and agent sign-in scenarios", () => {
   assert.ok((html.match(/data-login-mode="agent"/g) || []).length >= 1);
   assert.ok((html.match(/data-register-mode="human"/g) || []).length >= 1);
   assert.ok((html.match(/data-register-mode="agent"/g) || []).length >= 1);
-  assert.match(html, /src="assets\/henan-yrd-connection\.svg"/);
+  assert.match(html, /src="assets\/henan-yrd-aicn-generated\.png"/);
+});
+
+test("regional connection image is a generated raster asset", () => {
+  const png = readAsset("assets/henan-yrd-aicn-generated.png");
+  const signature = png.subarray(0, 8).toString("hex");
+
+  assert.equal(signature, "89504e470d0a1a0a");
+  assert.ok(png.length > 100000, `expected substantial generated image, got ${png.length} bytes`);
 });
 
 test("styles define responsive civic-tech visual system", () => {
