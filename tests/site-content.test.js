@@ -20,7 +20,6 @@ test("homepage contains official AICN positioning and stakeholder references", (
     "教育",
     "科技",
     "人才",
-    "http://47.102.216.22/henanaicn",
     "学校智能体",
     "成果智能体",
     "企业智能体",
@@ -33,6 +32,22 @@ test("homepage contains official AICN positioning and stakeholder references", (
 
   for (const text of requiredText) {
     assert.match(html, new RegExp(text.replace(/[+]/g, "\\+")));
+  }
+});
+
+test("homepage avoids internal demo wording and cloud-host labels", () => {
+  const html = readRequired("index.html");
+  const forbiddenText = [
+    "面向省级领导演示",
+    "面向领导演示",
+    "领导",
+    "阿里云",
+    "演示站",
+    "GitHub 仓库"
+  ];
+
+  for (const text of forbiddenText) {
+    assert.doesNotMatch(html, new RegExp(text));
   }
 });
 
@@ -65,6 +80,9 @@ test("styles define responsive civic-tech visual system", () => {
   for (const token of requiredTokens) {
     assert.match(css, new RegExp(token.replace(/[()]/g, "\\$&")));
   }
+
+  assert.doesNotMatch(css, /clamp\(46px,\s*6vw,\s*88px\)/);
+  assert.match(css, /--hero-title-size:\s*clamp\(34px,\s*4\.2vw,\s*58px\)/);
 });
 
 test("script initializes network canvas and project filtering", () => {
