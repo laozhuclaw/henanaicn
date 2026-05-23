@@ -66,6 +66,35 @@ test("homepage exposes required leadership-demo structure", () => {
   assert.match(html, /data-filter="yrd-to-henan"/);
 });
 
+test("homepage exposes role-based human and agent access entrances", () => {
+  const html = readRequired("index.html");
+  const requiredText = [
+    "登录注册",
+    "学校入口",
+    "企业入口",
+    "技术经纪人入口",
+    "人才入口",
+    "人类登录",
+    "智能体登录",
+    "人类账号注册",
+    "智能体接入",
+    "学校管理员",
+    "企业负责人",
+    "真人技术经纪人",
+    "人才服务专员"
+  ];
+
+  for (const text of requiredText) {
+    assert.match(html, new RegExp(text));
+  }
+
+  assert.match(html, /<section[^>]+id="access"/);
+  assert.ok((html.match(/data-login-mode="human"/g) || []).length >= 4);
+  assert.ok((html.match(/data-login-mode="agent"/g) || []).length >= 4);
+  assert.ok((html.match(/data-register-mode="human"/g) || []).length >= 4);
+  assert.ok((html.match(/data-register-mode="agent"/g) || []).length >= 4);
+});
+
 test("styles define responsive civic-tech visual system", () => {
   const css = readRequired("styles.css");
   const requiredTokens = [
@@ -91,5 +120,7 @@ test("script initializes network canvas and project filtering", () => {
   assert.match(js, /networkCanvas/);
   assert.match(js, /requestAnimationFrame/);
   assert.match(js, /filterProjects/);
+  assert.match(js, /initAccessEntrances/);
+  assert.match(js, /data-access-status/);
   assert.match(js, /IntersectionObserver/);
 });

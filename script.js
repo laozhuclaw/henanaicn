@@ -61,6 +61,32 @@ function initProjectFilters() {
   });
 }
 
+function initAccessEntrances() {
+  const status = document.querySelector("[data-access-status]");
+  const buttons = document.querySelectorAll("[data-login-mode], [data-register-mode]");
+  if (!status || !buttons.length) return;
+
+  const statusTitle = status.querySelector("strong");
+  const statusDetail = status.querySelector("em");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((item) => item.classList.remove("is-selected"));
+      button.classList.add("is-selected");
+
+      const role = button.dataset.accessRole || "平台入口";
+      const action = button.dataset.accessAction || button.textContent.trim();
+      const mode = button.dataset.loginMode || button.dataset.registerMode || "human";
+      const modeLabel = mode === "agent" ? "智能体身份" : "人类账号";
+
+      if (statusTitle) statusTitle.textContent = `${role} · ${action}`;
+      if (statusDetail) {
+        statusDetail.textContent = `${modeLabel}已进入河南省与长三角协同权限链，等待 AICN 调度智能体分派任务。`;
+      }
+    });
+  });
+}
+
 function initActiveNavigation() {
   const links = Array.from(document.querySelectorAll(".nav-links a"));
   if (!links.length) return;
@@ -176,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
   animateCounters();
   initReveals();
   initProjectFilters();
+  initAccessEntrances();
   initActiveNavigation();
   initNetworkCanvas();
 });
