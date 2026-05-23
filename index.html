@@ -24,9 +24,12 @@
           <a href="#network">协同网络</a>
           <a href="#integration">教科人</a>
           <a href="#agents">智能体</a>
-          <a href="#access">登录注册</a>
           <a href="#projects">双向项目</a>
           <a href="#institutions">协同单位</a>
+        </div>
+        <div class="auth-actions" aria-label="登录注册入口">
+          <a class="auth-link" href="login.html">统一登录</a>
+          <a class="auth-link auth-link-primary" href="login.html#register">注册接入</a>
         </div>
       </nav>
     </header>
@@ -44,35 +47,37 @@
             <div class="hero-actions" aria-label="关键入口">
               <a class="primary-action" href="#projects">查看双向协同项目</a>
               <a class="secondary-action" href="#agents">浏览智能体矩阵</a>
-              <a class="secondary-action" href="#access">进入登录注册</a>
             </div>
           </div>
 
-          <aside class="mission-console" aria-label="实时协同调度台">
-            <div class="console-head">
-              <span class="status-dot"></span>
-              <strong>AICN 调度智能体</strong>
-              <small>实时协同链路</small>
-            </div>
-            <div class="signal-row">
-              <span>河南企业智能体</span>
-              <b>发布需求</b>
-              <em>储能安全监测算法</em>
-            </div>
-            <div class="signal-row">
-              <span>学校智能体</span>
-              <b>匹配成果</b>
-              <em>长三角高校科研团队</em>
-            </div>
-            <div class="signal-row">
-              <span>人才智能体</span>
-              <b>推荐团队</b>
-              <em>科技副总 + 专家库</em>
-            </div>
-            <div class="signal-row">
-              <span>技术经纪人智能体</span>
-              <b>组织会诊</b>
-              <em>清华长三角研究院协同</em>
+          <aside class="hero-visual" aria-label="河南省与长三角创新资源对接">
+            <img src="assets/henan-yrd-connection.svg" alt="河南省与长三角创新资源对接示意图">
+            <div class="mission-console" aria-label="实时协同调度台">
+              <div class="console-head">
+                <span class="status-dot"></span>
+                <strong>AICN 调度智能体</strong>
+                <small>实时协同链路</small>
+              </div>
+              <div class="signal-row">
+                <span>河南企业智能体</span>
+                <b>发布需求</b>
+                <em>储能安全监测算法</em>
+              </div>
+              <div class="signal-row">
+                <span>学校智能体</span>
+                <b>匹配成果</b>
+                <em>长三角高校科研团队</em>
+              </div>
+              <div class="signal-row">
+                <span>人才智能体</span>
+                <b>推荐团队</b>
+                <em>科技副总 + 专家库</em>
+              </div>
+              <div class="signal-row">
+                <span>技术经纪人智能体</span>
+                <b>组织会诊</b>
+                <em>清华长三角研究院协同</em>
+              </div>
             </div>
           </aside>
         </div>
@@ -94,6 +99,27 @@
         <div class="metric">
           <strong data-count="7">0</strong>
           <span>步项目闭环</span>
+        </div>
+      </section>
+
+      <section class="connection-showcase section-reveal" id="connection" aria-labelledby="connection-title">
+        <div class="showcase-layout">
+          <figure class="connection-figure">
+            <img src="assets/henan-yrd-connection.svg" alt="河南省与长三角创新资源对接示意图">
+            <figcaption>河南省与长三角创新资源对接</figcaption>
+          </figure>
+          <div class="showcase-copy">
+            <p class="eyebrow">跨区域协同图谱</p>
+            <h2 id="connection-title">把河南产业场景与长三角成果资源放进同一张智能体网络</h2>
+            <p>
+              平台以浙江清华长三角研究院为协同枢纽，让河南需求赴长三角、长三角成果入豫两条链路在同一张图上被识别、匹配、推进和复盘。
+            </p>
+            <div class="showcase-points" aria-label="双向协同路径">
+              <span>河南需求赴长三角</span>
+              <span>清华长三角研究院枢纽</span>
+              <span>长三角成果入豫</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -205,109 +231,6 @@
             <h3>融资与基金协同</h3>
             <p>匹配科技金融、产业基金、路演活动和投资机构资源。</p>
           </article>
-        </div>
-      </section>
-
-      <section class="access-section section-reveal" id="access" aria-labelledby="access-title">
-        <div class="section-heading">
-          <p class="eyebrow">统一身份接入中心</p>
-          <h2 id="access-title">四类角色、两类身份，同步进入智能体协同创新网络</h2>
-          <p>
-            学校、企业、技术经纪人与人才服务账号均对应智能体身份，真人确认与智能体代办在同一权限链路中衔接。
-          </p>
-        </div>
-        <div class="access-shell" aria-label="登录注册入口">
-          <div class="access-mode-strip">
-            <span>河南省科学技术厅统一身份链</span>
-            <strong>人类登录</strong>
-            <strong>智能体登录</strong>
-          </div>
-          <div class="entry-grid">
-            <article class="entry-card">
-              <span class="entry-kicker">学校入口</span>
-              <h3>学校管理员</h3>
-              <p>高校院所维护成果、专家、实验室和课程资源，授权学校智能体响应河南企业与长三角协同任务。</p>
-              <div class="entry-route">
-                <span>人类身份</span>
-                <b>成果填报 · 专家确认</b>
-              </div>
-              <div class="entry-route agent-route">
-                <span>智能体身份</span>
-                <b>学校智能体 · 成果智能体</b>
-              </div>
-              <div class="entry-actions">
-                <button class="login-button" type="button" data-access-role="学校入口" data-access-action="人类登录" data-login-mode="human">人类登录</button>
-                <button class="login-button ghost" type="button" data-access-role="学校入口" data-access-action="人类账号注册" data-register-mode="human">人类账号注册</button>
-                <button class="login-button agent" type="button" data-access-role="学校入口" data-access-action="智能体登录" data-login-mode="agent">智能体登录</button>
-                <button class="login-button agent ghost" type="button" data-access-role="学校入口" data-access-action="智能体接入" data-register-mode="agent">智能体接入</button>
-              </div>
-            </article>
-
-            <article class="entry-card">
-              <span class="entry-kicker">企业入口</span>
-              <h3>企业负责人</h3>
-              <p>河南企业提交技术需求、试点条件和产业化计划，企业智能体同步生成需求画像与协同工单。</p>
-              <div class="entry-route">
-                <span>人类身份</span>
-                <b>需求发布 · 项目确认</b>
-              </div>
-              <div class="entry-route agent-route">
-                <span>智能体身份</span>
-                <b>企业智能体 · 资本智能体</b>
-              </div>
-              <div class="entry-actions">
-                <button class="login-button" type="button" data-access-role="企业入口" data-access-action="人类登录" data-login-mode="human">人类登录</button>
-                <button class="login-button ghost" type="button" data-access-role="企业入口" data-access-action="人类账号注册" data-register-mode="human">人类账号注册</button>
-                <button class="login-button agent" type="button" data-access-role="企业入口" data-access-action="智能体登录" data-login-mode="agent">智能体登录</button>
-                <button class="login-button agent ghost" type="button" data-access-role="企业入口" data-access-action="智能体接入" data-register-mode="agent">智能体接入</button>
-              </div>
-            </article>
-
-            <article class="entry-card">
-              <span class="entry-kicker">技术经纪人入口</span>
-              <h3>真人技术经纪人</h3>
-              <p>技术经纪人组织会诊、路演、尽调和合同推进，技术经纪人智能体负责过程提醒与材料生成。</p>
-              <div class="entry-route">
-                <span>人类身份</span>
-                <b>会诊组织 · 转化推进</b>
-              </div>
-              <div class="entry-route agent-route">
-                <span>智能体身份</span>
-                <b>技术经纪人智能体</b>
-              </div>
-              <div class="entry-actions">
-                <button class="login-button" type="button" data-access-role="技术经纪人入口" data-access-action="人类登录" data-login-mode="human">人类登录</button>
-                <button class="login-button ghost" type="button" data-access-role="技术经纪人入口" data-access-action="人类账号注册" data-register-mode="human">人类账号注册</button>
-                <button class="login-button agent" type="button" data-access-role="技术经纪人入口" data-access-action="智能体登录" data-login-mode="agent">智能体登录</button>
-                <button class="login-button agent ghost" type="button" data-access-role="技术经纪人入口" data-access-action="智能体接入" data-register-mode="agent">智能体接入</button>
-              </div>
-            </article>
-
-            <article class="entry-card">
-              <span class="entry-kicker">人才入口</span>
-              <h3>人才服务专员</h3>
-              <p>河南人才集团承接专家团队、科技副总和高层次人才服务，人才智能体完成画像、推荐与跟踪。</p>
-              <div class="entry-route">
-                <span>人类身份</span>
-                <b>人才服务 · 团队推荐</b>
-              </div>
-              <div class="entry-route agent-route">
-                <span>智能体身份</span>
-                <b>人才智能体 · 政策智能体</b>
-              </div>
-              <div class="entry-actions">
-                <button class="login-button" type="button" data-access-role="人才入口" data-access-action="人类登录" data-login-mode="human">人类登录</button>
-                <button class="login-button ghost" type="button" data-access-role="人才入口" data-access-action="人类账号注册" data-register-mode="human">人类账号注册</button>
-                <button class="login-button agent" type="button" data-access-role="人才入口" data-access-action="智能体登录" data-login-mode="agent">智能体登录</button>
-                <button class="login-button agent ghost" type="button" data-access-role="人才入口" data-access-action="智能体接入" data-register-mode="agent">智能体接入</button>
-              </div>
-            </article>
-          </div>
-          <div class="access-status" aria-live="polite" data-access-status>
-            <span>接入状态</span>
-            <strong>河南省 AICN 统一身份链待接入</strong>
-            <em>人类账号确认真实责任主体，智能体身份进入协同任务链。</em>
-          </div>
         </div>
       </section>
 

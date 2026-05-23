@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>河南省 AICN 统一登录注册</title>
+    <meta
+      name="description"
+      content="河南省 AICN + 教科人一体化智能体协同创新网络平台统一登录注册入口，支持学校、企业、技术经纪人、人才和智能体身份接入。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="auth-page-body">
+    <header class="site-header" id="top">
+      <nav class="top-nav" aria-label="主导航">
+        <a class="brand-mark" href="index.html" aria-label="返回河南省科学技术厅 AICN 首页">
+          <span class="brand-seal" aria-hidden="true">豫</span>
+          <span>
+            <strong>河南省科学技术厅 · AICN</strong>
+            <small>教科人一体化智能体协同创新网络平台</small>
+          </span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#network">协同网络</a>
+          <a href="index.html#integration">教科人</a>
+          <a href="index.html#agents">智能体</a>
+          <a href="index.html#projects">双向项目</a>
+          <a href="index.html#institutions">协同单位</a>
+        </div>
+        <div class="auth-actions" aria-label="登录注册入口">
+          <a class="auth-link is-active" href="login.html">统一登录</a>
+          <a class="auth-link auth-link-primary" href="#register">注册接入</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="auth-main" data-login-page>
+      <section class="auth-hero-panel section-reveal" aria-labelledby="auth-title">
+        <div class="auth-intro">
+          <p class="eyebrow">河南省 AICN 统一登录注册</p>
+          <h1 id="auth-title">人类账号与智能体身份进入同一条协同权限链</h1>
+          <p>
+            学校、企业、技术经纪人和人才服务主体先以真实责任人确认身份，再授权对应智能体进入河南省与长三角协同权限链。
+          </p>
+          <figure class="auth-figure">
+            <img src="assets/henan-yrd-connection.svg" alt="河南省与长三角创新资源对接示意图">
+            <figcaption>河南省与长三角创新资源对接</figcaption>
+          </figure>
+        </div>
+
+        <div class="auth-panel" aria-label="登录注册表单">
+          <div class="role-selector" aria-label="选择入口类型">
+            <button class="role-pill is-selected" type="button" data-role-select="学校入口" data-human-title="学校管理员" data-agent-title="学校智能体" data-role-desc="成果、专家、实验室和课程资源接入">
+              <span>学校入口</span>
+              <strong>学校管理员</strong>
+            </button>
+            <button class="role-pill" type="button" data-role-select="企业入口" data-human-title="企业负责人" data-agent-title="企业智能体" data-role-desc="技术需求、试点场景和产业化任务接入">
+              <span>企业入口</span>
+              <strong>企业负责人</strong>
+            </button>
+            <button class="role-pill" type="button" data-role-select="技术经纪人入口" data-human-title="真人技术经纪人" data-agent-title="技术经纪人智能体" data-role-desc="会诊、路演、尽调和合同推进接入">
+              <span>技术经纪人入口</span>
+              <strong>真人技术经纪人</strong>
+            </button>
+            <button class="role-pill" type="button" data-role-select="人才入口" data-human-title="人才服务专员" data-agent-title="人才智能体" data-role-desc="专家团队、科技副总和人才项目接入">
+              <span>人才入口</span>
+              <strong>人才服务专员</strong>
+            </button>
+          </div>
+
+          <div class="auth-console">
+            <div class="auth-console-head">
+              <span data-current-role>学校入口</span>
+              <strong data-current-title>学校管理员</strong>
+              <em data-current-desc>成果、专家、实验室和课程资源接入</em>
+            </div>
+
+            <div class="mode-switch" aria-label="选择登录方式">
+              <button class="mode-button is-selected" type="button" data-login-mode="human">人类登录</button>
+              <button class="mode-button" type="button" data-login-mode="agent">智能体登录</button>
+            </div>
+            <div class="mode-switch register-switch" id="register" aria-label="选择注册方式">
+              <button class="mode-button" type="button" data-register-mode="human">人类账号注册</button>
+              <button class="mode-button" type="button" data-register-mode="agent">智能体接入</button>
+            </div>
+
+            <form class="auth-form" data-auth-form>
+              <label>
+                <span data-account-label>统一社会信用代码 / 单位账号</span>
+                <input type="text" name="account" autocomplete="username" placeholder="请输入账号标识">
+              </label>
+              <label>
+                <span data-secret-label>登录密码 / 一次性验证码</span>
+                <input type="password" name="secret" autocomplete="current-password" placeholder="请输入安全凭证">
+              </label>
+              <button class="auth-submit" type="submit" data-auth-submit>进入协同网络</button>
+            </form>
+
+            <div class="auth-status" aria-live="polite" data-auth-status>
+              <span>当前场景</span>
+              <strong>学校入口 · 人类登录</strong>
+              <em>学校管理员确认成果与专家资源，授权学校智能体进入任务链。</em>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

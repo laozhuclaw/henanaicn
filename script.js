@@ -61,32 +61,6 @@ function initProjectFilters() {
   });
 }
 
-function initAccessEntrances() {
-  const status = document.querySelector("[data-access-status]");
-  const buttons = document.querySelectorAll("[data-login-mode], [data-register-mode]");
-  if (!status || !buttons.length) return;
-
-  const statusTitle = status.querySelector("strong");
-  const statusDetail = status.querySelector("em");
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      buttons.forEach((item) => item.classList.remove("is-selected"));
-      button.classList.add("is-selected");
-
-      const role = button.dataset.accessRole || "平台入口";
-      const action = button.dataset.accessAction || button.textContent.trim();
-      const mode = button.dataset.loginMode || button.dataset.registerMode || "human";
-      const modeLabel = mode === "agent" ? "智能体身份" : "人类账号";
-
-      if (statusTitle) statusTitle.textContent = `${role} · ${action}`;
-      if (statusDetail) {
-        statusDetail.textContent = `${modeLabel}已进入河南省与长三角协同权限链，等待 AICN 调度智能体分派任务。`;
-      }
-    });
-  });
-}
-
 function initActiveNavigation() {
   const links = Array.from(document.querySelectorAll(".nav-links a"));
   if (!links.length) return;
@@ -107,6 +81,110 @@ function initActiveNavigation() {
   }, { rootMargin: "-35% 0px -55% 0px", threshold: [0.15, 0.35, 0.6] });
 
   sections.forEach((section) => observer.observe(section));
+}
+
+function initLoginPage() {
+  const page = document.querySelector("[data-login-page]");
+  if (!page) return;
+
+  const roleButtons = Array.from(page.querySelectorAll("[data-role-select]"));
+  const modeButtons = Array.from(page.querySelectorAll("[data-login-mode], [data-register-mode]"));
+  const currentRole = page.querySelector("[data-current-role]");
+  const currentTitle = page.querySelector("[data-current-title]");
+  const currentDesc = page.querySelector("[data-current-desc]");
+  const accountLabel = page.querySelector("[data-account-label]");
+  const secretLabel = page.querySelector("[data-secret-label]");
+  const status = page.querySelector("[data-auth-status]");
+  const statusTitle = status ? status.querySelector("strong") : null;
+  const statusDetail = status ? status.querySelector("em") : null;
+  const form = page.querySelector("[data-auth-form]");
+
+  if (!roleButtons.length || !modeButtons.length) return;
+
+  const state = {
+    roleButton: roleButtons[0],
+    identity: "human",
+    action: window.location.hash === "#register" ? "人类账号注册" : "人类登录"
+  };
+
+  function applyModeLabels() {
+    const isAgent = state.identity === "agent";
+    const isRegister = state.action.includes("注册") || state.action.includes("接入");
+
+    if (accountLabel) {
+      accountLabel.textContent = isAgent
+        ? "智能体编码 / API 身份标识"
+        : isRegister
+          ? "注册主体名称 / 统一社会信用代码"
+          : "统一社会信用代码 / 单位账号";
+    }
+
+    if (secretLabel) {
+      secretLabel.textContent = isAgent
+        ? isRegister
+          ? "接入密钥 / 回调校验码"
+          : "智能体密钥 / 授权令牌"
+        : isRegister
+          ? "联系人手机号 / 授权校验码"
+          : "登录密码 / 一次性验证码";
+    }
+  }
+
+  function updateAuthPanel(submitted = false) {
+    const role = state.roleButton.dataset.roleSelect || "学校入口";
+    const humanTitle = state.roleButton.dataset.humanTitle || "学校管理员";
+    const agentTitle = state.roleButton.dataset.agentTitle || "学校智能体";
+    const desc = state.roleButton.dataset.roleDesc || "成果、专家、实验室和课程资源接入";
+    const title = state.identity === "agent" ? agentTitle : humanTitle;
+    const identityLabel = state.identity === "agent" ? "智能体身份" : "人类账号";
+
+    roleButtons.forEach((button) => button.classList.toggle("is-selected", button === state.roleButton));
+    modeButtons.forEach((button) => button.classList.toggle("is-selected", button.textContent.trim() === state.action));
+
+    if (currentRole) currentRole.textContent = role;
+    if (currentTitle) currentTitle.textContent = title;
+    if (currentDesc) currentDesc.textContent = desc;
+    if (statusTitle) statusTitle.textContent = `${role} · ${state.action}`;
+    if (statusDetail) {
+      statusDetail.textContent = submitted
+        ? `${title}的${identityLabel}请求已进入河南省与长三角协同权限链，等待 AICN 调度智能体校验。`
+        : `${title}通过${identityLabel}确认责任边界，进入 AICN 协同任务链。`;
+    }
+
+    applyModeLabels();
+  }
+
+  roleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.roleButton = button;
+      updateAuthPanel();
+    });
+  });
+
+  modeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.identity = button.dataset.loginMode || button.dataset.registerMode || "human";
+      state.action = button.textContent.trim();
+      updateAuthPanel();
+    });
+  });
+
+  if (window.location.hash === "#register") {
+    const registerButton = modeButtons.find((button) => button.dataset.registerMode === "human");
+    if (registerButton) {
+      state.identity = "human";
+      state.action = registerButton.textContent.trim();
+    }
+  }
+
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      updateAuthPanel(true);
+    });
+  }
+
+  updateAuthPanel();
 }
 
 function initNetworkCanvas() {
@@ -202,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
   animateCounters();
   initReveals();
   initProjectFilters();
-  initAccessEntrances();
+  initLoginPage();
   initActiveNavigation();
   initNetworkCanvas();
 });

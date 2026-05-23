@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">河南省与长三角创新资源对接示意图</title>
+  <desc id="desc">河南省创新场景通过浙江清华长三角研究院枢纽连接长三角高校、企业、人才和资本资源。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071b37"/>
+      <stop offset="0.52" stop-color="#0f3b78"/>
+      <stop offset="1" stop-color="#075f64"/>
+    </linearGradient>
+    <linearGradient id="henan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#32b67a"/>
+      <stop offset="1" stop-color="#18d6ff"/>
+    </linearGradient>
+    <linearGradient id="yrd" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8a73f"/>
+      <stop offset="1" stop-color="#18d6ff"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0v64" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="760" rx="8" fill="url(#bg)"/>
+  <rect width="1280" height="760" rx="8" fill="url(#grid)" opacity=".72"/>
+  <path d="M74 604C235 524 387 516 525 577s278 63 420-18 232-91 302-62v150H74z" fill="#0b2a52" opacity=".52"/>
+  <path d="M64 144c132-48 259-46 379 8s223 58 309 10 184-54 294-18 165 43 215 20" fill="none" stroke="#18d6ff" stroke-width="2" opacity=".22"/>
+  <path d="M62 226c132-48 259-46 379 8s223 58 309 10 184-54 294-18 165 43 215 20" fill="none" stroke="#d8a73f" stroke-width="2" opacity=".16"/>
+
+  <g transform="translate(96 116)">
+    <text x="0" y="0" fill="#18d6ff" font-size="24" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">河南省创新场景域</text>
+    <text x="0" y="38" fill="#fff" font-size="42" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif">需求、产业、试点</text>
+    <text x="0" y="78" fill="rgba(255,255,255,.62)" font-size="20" font-family="PingFang SC, Microsoft YaHei, sans-serif">7+28+N 产业链群 · 高校院所 · 技术转移网络</text>
+  </g>
+
+  <g transform="translate(812 116)">
+    <text x="0" y="0" fill="#d8a73f" font-size="24" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">长三角创新资源域</text>
+    <text x="0" y="38" fill="#fff" font-size="42" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif">成果、专家、资本</text>
+    <text x="0" y="78" fill="rgba(255,255,255,.62)" font-size="20" font-family="PingFang SC, Microsoft YaHei, sans-serif">清华资源 · 高校成果 · 科技服务 · 产业化案例</text>
+  </g>
+
+  <g opacity=".22">
+    <path d="M203 328l-34-55 42-64 83-12 57 47-12 91-69 43z" fill="#fff"/>
+    <path d="M1003 326l-59-37 8-80 78-52 86 20 55 64-26 85-76 40z" fill="#fff"/>
+  </g>
+  <g filter="url(#glow)">
+    <path d="M219 358l-45-72 54-84 109-16 74 62-15 119-90 56z" fill="url(#henan)" opacity=".92"/>
+    <path d="M986 360l-78-49 11-106 103-69 114 27 72 84-34 112-101 53z" fill="url(#yrd)" opacity=".92"/>
+  </g>
+
+  <g transform="translate(184 274)">
+    <circle cx="0" cy="0" r="7" fill="#fff"/>
+    <circle cx="84" cy="-48" r="6" fill="#fff"/>
+    <circle cx="128" cy="42" r="6" fill="#fff"/>
+    <path d="M0 0L84-48l44 90L0 0z" fill="none" stroke="#fff" stroke-width="2" opacity=".62"/>
+    <text x="-34" y="128" fill="#fff" font-size="26" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif">河南</text>
+    <text x="-34" y="162" fill="rgba(255,255,255,.68)" font-size="18" font-family="PingFang SC, Microsoft YaHei, sans-serif">企业需求与试点场景</text>
+  </g>
+
+  <g transform="translate(980 270)">
+    <circle cx="0" cy="0" r="7" fill="#fff"/>
+    <circle cx="92" cy="-30" r="6" fill="#fff"/>
+    <circle cx="126" cy="60" r="6" fill="#fff"/>
+    <path d="M0 0l92-30 34 90L0 0z" fill="none" stroke="#fff" stroke-width="2" opacity=".62"/>
+    <text x="-24" y="148" fill="#fff" font-size="26" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif">长三角</text>
+    <text x="-24" y="182" fill="rgba(255,255,255,.68)" font-size="18" font-family="PingFang SC, Microsoft YaHei, sans-serif">成果专家与资本资源</text>
+  </g>
+
+  <g transform="translate(640 358)" filter="url(#glow)">
+    <circle r="78" fill="#08244a" stroke="#18d6ff" stroke-width="2"/>
+    <circle r="52" fill="none" stroke="#d8a73f" stroke-width="2" opacity=".9"/>
+    <circle r="12" fill="#18d6ff"/>
+    <text x="0" y="-108" text-anchor="middle" fill="#fff" font-size="26" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif">浙江清华长三角研究院</text>
+    <text x="0" y="108" text-anchor="middle" fill="rgba(255,255,255,.66)" font-size="18" font-family="PingFang SC, Microsoft YaHei, sans-serif">AICN 协同调度枢纽</text>
+  </g>
+
+  <path d="M333 326C432 246 522 246 640 358" fill="none" stroke="#18d6ff" stroke-width="8" stroke-linecap="round" opacity=".25"/>
+  <path d="M333 326C432 246 522 246 640 358" fill="none" stroke="#18d6ff" stroke-width="2" stroke-dasharray="10 12" stroke-linecap="round"/>
+  <path d="M947 326C846 250 755 249 640 358" fill="none" stroke="#d8a73f" stroke-width="8" stroke-linecap="round" opacity=".22"/>
+  <path d="M947 326C846 250 755 249 640 358" fill="none" stroke="#d8a73f" stroke-width="2" stroke-dasharray="10 12" stroke-linecap="round"/>
+  <path d="M333 420C446 518 524 512 640 434s209-87 307 0" fill="none" stroke="#32b67a" stroke-width="2" stroke-dasharray="4 10" opacity=".75"/>
+
+  <g transform="translate(96 590)">
+    <rect width="1088" height="82" rx="16" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.16)"/>
+    <text x="32" y="34" fill="#18d6ff" font-size="20" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif">河南需求赴长三角</text>
+    <text x="32" y="61" fill="rgba(255,255,255,.7)" font-size="17" font-family="PingFang SC, Microsoft YaHei, sans-serif">企业智能体发布需求，学校智能体和成果智能体匹配长三角科研成果。</text>
+    <text x="642" y="34" fill="#d8a73f" font-size="20" font-weight="800" font-family="PingFang SC, Microsoft YaHei, sans-serif">长三角成果入豫</text>
+    <text x="642" y="61" fill="rgba(255,255,255,.7)" font-size="17" font-family="PingFang SC, Microsoft YaHei, sans-serif">清华长三角研究院协同资源，技术经纪人和人才智能体推进落地。</text>
+  </g>
+</svg>

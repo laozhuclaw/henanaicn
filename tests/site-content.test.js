@@ -66,10 +66,31 @@ test("homepage exposes required leadership-demo structure", () => {
   assert.match(html, /data-filter="yrd-to-henan"/);
 });
 
-test("homepage exposes role-based human and agent access entrances", () => {
+test("homepage moves login access to the header and uses regional visual assets", () => {
   const html = readRequired("index.html");
   const requiredText = [
-    "登录注册",
+    "统一登录",
+    "注册接入",
+    "河南省与长三角创新资源对接",
+    "河南需求赴长三角",
+    "长三角成果入豫"
+  ];
+
+  for (const text of requiredText) {
+    assert.match(html, new RegExp(text));
+  }
+
+  assert.match(html, /class="auth-actions"/);
+  assert.match(html, /href="login\.html"/);
+  assert.match(html, /src="assets\/henan-yrd-connection\.svg"/);
+  assert.match(html, /alt="河南省与长三角创新资源对接示意图"/);
+  assert.doesNotMatch(html, /<section[^>]+id="access"/);
+});
+
+test("login page exposes role-based human and agent sign-in scenarios", () => {
+  const html = readRequired("login.html");
+  const requiredText = [
+    "河南省 AICN 统一登录注册",
     "学校入口",
     "企业入口",
     "技术经纪人入口",
@@ -81,18 +102,21 @@ test("homepage exposes role-based human and agent access entrances", () => {
     "学校管理员",
     "企业负责人",
     "真人技术经纪人",
-    "人才服务专员"
+    "人才服务专员",
+    "河南省与长三角协同权限链"
   ];
 
   for (const text of requiredText) {
     assert.match(html, new RegExp(text));
   }
 
-  assert.match(html, /<section[^>]+id="access"/);
-  assert.ok((html.match(/data-login-mode="human"/g) || []).length >= 4);
-  assert.ok((html.match(/data-login-mode="agent"/g) || []).length >= 4);
-  assert.ok((html.match(/data-register-mode="human"/g) || []).length >= 4);
-  assert.ok((html.match(/data-register-mode="agent"/g) || []).length >= 4);
+  assert.match(html, /data-login-page/);
+  assert.ok((html.match(/data-role-select=/g) || []).length >= 4);
+  assert.ok((html.match(/data-login-mode="human"/g) || []).length >= 1);
+  assert.ok((html.match(/data-login-mode="agent"/g) || []).length >= 1);
+  assert.ok((html.match(/data-register-mode="human"/g) || []).length >= 1);
+  assert.ok((html.match(/data-register-mode="agent"/g) || []).length >= 1);
+  assert.match(html, /src="assets\/henan-yrd-connection\.svg"/);
 });
 
 test("styles define responsive civic-tech visual system", () => {
@@ -120,7 +144,7 @@ test("script initializes network canvas and project filtering", () => {
   assert.match(js, /networkCanvas/);
   assert.match(js, /requestAnimationFrame/);
   assert.match(js, /filterProjects/);
-  assert.match(js, /initAccessEntrances/);
-  assert.match(js, /data-access-status/);
+  assert.match(js, /initLoginPage/);
+  assert.match(js, /data-auth-status/);
   assert.match(js, /IntersectionObserver/);
 });
