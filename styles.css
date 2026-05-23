@@ -202,12 +202,16 @@ button {
   padding: 64px 0;
 }
 
+.hero-copy {
+  padding-top: min(18vw, 220px);
+}
+
 .hero-corner-visual {
   position: absolute;
   z-index: 1;
-  top: clamp(34px, 7.2vh, 76px);
+  top: clamp(24px, 5vh, 52px);
   left: max(24px, calc((100vw - 1440px) / 2 + 24px));
-  width: min(32vw, 430px);
+  width: min(48vw, 680px);
   margin: 0;
   pointer-events: none;
 }
@@ -275,15 +279,7 @@ button {
 
 .hero-visual {
   display: grid;
-  gap: 14px;
-}
-
-.hero-visual img {
-  width: 100%;
-  display: block;
-  border: 1px solid rgba(24, 214, 255, 0.32);
-  border-radius: var(--radius);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  padding-top: min(25vw, 320px);
 }
 
 .mission-console {
@@ -1015,6 +1011,11 @@ section:not(.hero):not(.metrics-band) {
   .hero-visual,
   .auth-panel {
     max-width: 620px;
+  }
+
+  .hero-copy,
+  .hero-visual {
+    padding-top: 0;
   }
 
   .hero-corner-visual {

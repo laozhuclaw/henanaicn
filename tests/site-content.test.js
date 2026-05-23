@@ -140,17 +140,21 @@ test("regional connection image is a generated raster asset", () => {
   assert.ok(png.length > 100000, `expected substantial generated image, got ${png.length} bytes`);
 });
 
-test("homepage places a generated AICN visual into the hero upper-left space", () => {
+test("homepage uses an enlarged upper-left AICN visual and removes the duplicate right visual", () => {
   const html = readRequired("index.html");
   const css = readRequired("styles.css");
   const png = readAsset("assets/hero-left-aicn-connection.png");
   const signature = png.subarray(0, 8).toString("hex");
+  const heroVisual = html.match(/<aside class="hero-visual"[\s\S]*?<\/aside>/)?.[0] || "";
 
   assert.match(html, /class="hero-corner-visual"/);
   assert.match(html, /src="assets\/hero-left-aicn-connection\.png"/);
+  assert.match(heroVisual, /class="mission-console"/);
+  assert.doesNotMatch(heroVisual, /<img\b/);
   assert.equal(signature, "89504e470d0a1a0a");
   assert.ok(png.length > 100000, "hero upper-left visual should be a generated PNG asset");
   assert.match(css, /\.hero-corner-visual/);
+  assert.match(css, /width:\s*min\(48vw,\s*680px\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]+\.hero-corner-visual[\s\S]+display:\s*none/);
 });
 
