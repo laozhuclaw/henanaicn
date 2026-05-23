@@ -9,6 +9,14 @@
 - Design spec: [docs/superpowers/specs/2026-05-23-henan-aicn-design.md](docs/superpowers/specs/2026-05-23-henan-aicn-design.md)
 - Source proposal: [河南省AICN教科人一体化协同创新网络建设方案_V2.docx](河南省AICN教科人一体化协同创新网络建设方案_V2.docx)
 
+## Deploy
+
+The production static site is served from `/var/www/html/henanaicn/` and is owned by the `aicn` deploy user.
+
+```bash
+SSHPASS='***' ./deploy.sh
+```
+
 ## Positioning
 
 The platform highlights:
