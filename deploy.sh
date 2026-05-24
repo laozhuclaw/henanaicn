@@ -4,10 +4,10 @@ set -euo pipefail
 # Deploy the static Henan AICN site.
 # Usage:
 #   SSHPASS='***' ./deploy.sh
-#   ./deploy.sh aicn@47.102.216.22 /var/www/html/henanaicn/
+#   ./deploy.sh aicn@47.102.216.22 /var/www/html/aicn/henan/
 
 HOST="${1:-aicn@47.102.216.22}"
-TARGET="${2:-/var/www/html/henanaicn/}"
+TARGET="${2:-/var/www/html/aicn/henan/}"
 PORT="${PORT:-50022}"
 
 SSH_OPTS="-p ${PORT} -o StrictHostKeyChecking=no"
@@ -29,4 +29,4 @@ fi
   assets \
   "${HOST}:${TARGET}"
 
-echo "Deployed: http://47.102.216.22/henanaicn/"
+echo "Deployed: http://47.102.216.22/aicn/henan/"

@@ -5,13 +5,13 @@
 ## Links
 
 - GitHub: https://github.com/laozhuclaw/henanaicn
-- Aliyun deployment: http://47.102.216.22/henanaicn
+- Aliyun deployment: http://47.102.216.22/aicn/henan/
 - Design spec: [docs/superpowers/specs/2026-05-23-henan-aicn-design.md](docs/superpowers/specs/2026-05-23-henan-aicn-design.md)
 - Source proposal: [河南省AICN教科人一体化协同创新网络建设方案_V2.docx](河南省AICN教科人一体化协同创新网络建设方案_V2.docx)
 
 ## Deploy
 
-The production static site is served from `/var/www/html/henanaicn/` and is owned by the `aicn` deploy user.
+The production static site is served from `/var/www/html/aicn/henan/` and is owned by the `aicn` deploy user. The legacy `/henanaicn/` URL is kept online separately for compatibility; the canonical AICN namespace is `/aicn/henan/`.
 
 ```bash
 SSHPASS='***' ./deploy.sh
